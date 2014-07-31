@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tally</string>
+    <string name="tallyButtonText">Reset</string>
+    <string name="tapToCount">Tap to count</string>
+</resources>
