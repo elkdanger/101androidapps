@@ -21,14 +21,11 @@
 
     </application>
 
+    <!-- Require these permissions in order to access the flash (flash, by extension, also needs the camera permission) -->
     <uses-permission android:name="android.permission.CAMERA"></uses-permission>
     <uses-permission android:name="android.permission.FLASHLIGHT"></uses-permission>
 
     <uses-feature android:name="android.permission.camera"></uses-feature>
     <uses-feature android:name="android.permission.camera.flash" android:required="true"></uses-feature>
-
-    <!--<permission android:name="android.permission.FLASHLIGHT"
-        android:permissionGroup="android.permission-group.HARDWARE_CONTROLS"
-        android:protectionLevel="normal" />-->
 
 </manifest>

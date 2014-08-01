@@ -17,7 +17,13 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-    static Camera _camera = null;
+    static Camera _camera = null;   // static so that the instance remains across activity resets
+
+    /*
+    Useful stuff which helped to get this working:
+    http://stackoverflow.com/questions/21417332/nexus-5-4-4-2-flashlight-led-not-turning-on
+    http://stackoverflow.com/questions/6068803/how-turn-on-camera-flash-light-programmatically-in-android
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,7 @@ public class MainActivity extends Activity {
             toggleButton.setVisibility(View.GONE);
         }
 
+        // Toggle the flash when clicked
         toggleButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -45,11 +52,13 @@ public class MainActivity extends Activity {
                     if(_camera == null) {
 
                         _camera = Camera.open();
+
+                        // Some devices need a preview texture in order to show the flash
                         _camera.setPreviewTexture(new SurfaceTexture(0));
 
                         Camera.Parameters parameters = _camera.getParameters();
 
-                        // If we support AutoFlash, then turn it on
+                        // If we support Torch mode, then turn it on
                         List<String> flashModes = parameters.getSupportedFlashModes();
 
                         if (flashModes.contains(Camera.Parameters.FLASH_MODE_TORCH)) {
@@ -70,5 +79,5 @@ public class MainActivity extends Activity {
                 }
             }
         });
-     }
+    }
 }
