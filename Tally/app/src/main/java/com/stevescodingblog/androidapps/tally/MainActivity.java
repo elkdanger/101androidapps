@@ -3,7 +3,8 @@ package com.stevescodingblog.androidapps.tally;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -17,11 +18,27 @@ public class MainActivity extends Activity {
 
         final View layoutRoot = this.findViewById(R.id.layoutRoot);
         layoutRoot.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Tapped!", Toast.LENGTH_LONG);
+                _tally += 1;
+                updateUi();
             }
         });
+
+        final Button resetButton = (Button) this.findViewById(R.id.tallyButton);
+        resetButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                _tally = 1;
+                updateUi();
+            }
+        });
+    }
+
+    protected void updateUi() {
+
+        final TextView tallyDisplay = (TextView)this.findViewById(R.id.tallyDisplay);
+        tallyDisplay.setText(Integer.toString(this._tally));
+
     }
 }
