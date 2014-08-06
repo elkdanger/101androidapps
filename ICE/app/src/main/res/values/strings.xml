@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ICE</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">In Case of Emergency</string>
+    <string name="tap_to_call">Tap here to call</string>
+
+    <string name="emergency_contact_name">Emergency contact</string>
+    <string name="emergency_contact_number">Emergency contact number</string>
+    <string name="phone_owner_name">Phone owner name</string>
+    <string name="phone_owner_notes">Phone owner notes</string>
 
 </resources>

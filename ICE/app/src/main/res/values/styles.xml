@@ -1,8 +1,25 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme" parent="android:Theme.Holo">
         <!-- Customize your theme here. -->
+
     </style>
 
-</resources>
+    <style name="headerText">
+        <item name="android:textSize">@dimen/header_text_size</item>
+        <item name="android:textColor">#ffe95944</item>
+        <item name="android:paddingBottom">@dimen/section_padding_bottom</item>
+    </style>
+
+    <style name="label">
+        <item name="android:paddingTop">@dimen/section_padding_bottom</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="input">
+
+    </style>
+
+ </resources>
