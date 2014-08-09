@@ -49,8 +49,10 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 try {
 
+                    // If we haven't got an instance of the camera..
                     if(_camera == null) {
 
+                        // Open it
                         _camera = Camera.open();
 
                         // Some devices need a preview texture in order to show the flash
