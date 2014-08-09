@@ -32,17 +32,22 @@ public class MainActivity extends Activity {
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // If we have entered a phone number, start the dialer so that the emergency number
+                // can be called
                 if(_currentPhoneNumber != null && !_currentPhoneNumber.isEmpty()) {
                     Intent dialIntent = new Intent(Intent.ACTION_DIAL);
                     dialIntent.setData(Uri.parse("tel:" + Uri.encode(_currentPhoneNumber)));
                     startActivity(dialIntent);
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Enter a contact phone number first", Toast.LENGTH_SHORT).show();
+                    // If no number has been entered, display a short message to the user:
+                    Toast.makeText(getApplicationContext(), R.string.msg_enter_a_number, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        // Some textbox event handling
         final EditText contactNumber = (EditText)findViewById(R.id.emergencyContactNumber);
         contactNumber.addTextChangedListener(new TextWatcher() {
             @Override
@@ -55,6 +60,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                // When the number is changed, store it locally
                 _currentPhoneNumber = contactNumber.getText().toString();
             }
         });
@@ -72,6 +78,9 @@ public class MainActivity extends Activity {
         loadData();
     }
 
+    /**
+     * Loads the textbox values from the preferences store
+     */
     protected void loadData() {
 
         EditText contactName = (EditText)this.findViewById(R.id.emergencyContactText);
@@ -87,6 +96,9 @@ public class MainActivity extends Activity {
         ownerNotes.setText(preferences.getString("ownerNotes", ""));
     }
 
+    /**
+     * Saves all of the textbox data to the preferences store
+     */
     protected void saveData() {
 
         EditText contactName = (EditText)this.findViewById(R.id.emergencyContactText);

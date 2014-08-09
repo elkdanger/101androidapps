@@ -9,4 +9,5 @@
     <string name="phone_owner_name">Phone owner name</string>
     <string name="phone_owner_notes">Phone owner notes</string>
 
+    <string name="msg_enter_a_number">Enter a contact phone number first</string>
 </resources>
