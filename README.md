@@ -7,6 +7,7 @@ Projects completed so far:
 
 * [Tally](/Tally) - Tap to count!
 * [Flashlight](/Flashlight) - Toggles the flashlight on your device
+* [ICE](/ICE) - An "In Case of Emergeny" app, presenting emergency contact details
 
 [1]: http://www.amazon.co.uk/101-Windows-Phone-Apps-Volume/dp/0672335522
 [2]: http://blog.adamnathan.net/
