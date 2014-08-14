@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.joda.time.DateTime;
+import org.joda.time.Period;
+import org.joda.time.format.PeriodFormat;
+import org.joda.time.format.PeriodFormatter;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,7 +21,7 @@ public class MainActivity extends Activity {
     final int HANDLER_DELAY_MS = 100;
 
     final Handler _loopHandler = new Handler();
-    Date _startDate = null;
+    DateTime _startDate = null;
     Boolean _isRunning = false;
 
     @Override
@@ -51,7 +56,7 @@ public class MainActivity extends Activity {
         this._isRunning = true;
 
         // Record the date at which we started
-        _startDate = new Date();
+        _startDate = new DateTime();
 
         updateUi();
 
@@ -86,13 +91,19 @@ public class MainActivity extends Activity {
 
     private void updateUi() {
 
-        Date now = new Date();
+        DateTime now = new DateTime();
 
-        long nowSeconds = now.getTime();
-        long startSeconds = _startDate.getTime();
-        double total = (nowSeconds - startSeconds) * 0.001;
+        //long nowSeconds = now.getTime();
+        //long startSeconds = _startDate.getTime();
+        //double total = (nowSeconds - startSeconds) * 0.001;
 
         TextView currentTime = (TextView)findViewById(R.id.totalTime);
-        currentTime.setText(String.valueOf(total));
+        //currentTime.setText(String.valueOf(total));
+
+        // JOTA time
+        Period period = new Period(_startDate, now);
+        PeriodFormatter formatter = PeriodFormat.getDefault();
+
+        currentTime.setText(formatter.print(period));
     }
 }
